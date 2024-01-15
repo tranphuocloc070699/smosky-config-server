@@ -1,23 +1,21 @@
 server:
-  port: 8071
+  port: 8070
 spring:
   application:
     name: "configserver"
   profiles:
-    # active: native
     active: git
   cloud:
     config:
       server:
-        # native:
-        # search-locations: "classpath:/config"
-        # search-locations: "file:///Users//eazybytes//Documents//config"
         git:
           uri: "https://github.com/tranphuocloc070699/smosky-config-repo.git"
           default-label: main
           timeout: 5
           clone-on-start: true
           force-pull: true
+          search-paths: '{application}'
+
   rabbitmq:
     host: "localhost"
     port: 5672
